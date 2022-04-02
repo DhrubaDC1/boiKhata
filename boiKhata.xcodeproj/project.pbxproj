@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5C35BEC043E1D04398FE5300 /* Pods_boiKhata.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AC929D2F9E42C61E964CBA2 /* Pods_boiKhata.framework */; };
+		C89096BD27F5937F00265036 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C89096BC27F5937F00265036 /* GoogleService-Info.plist */; };
 		C8E58EDD27F589D800E2B18E /* boiKhataApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E58EDC27F589D800E2B18E /* boiKhataApp.swift */; };
 		C8E58EDF27F589D800E2B18E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E58EDE27F589D800E2B18E /* ContentView.swift */; };
 		C8E58EE127F589DA00E2B18E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C8E58EE027F589DA00E2B18E /* Assets.xcassets */; };
@@ -14,6 +16,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5373B3765540F670D05FF1CE /* Pods-boiKhata.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-boiKhata.release.xcconfig"; path = "Target Support Files/Pods-boiKhata/Pods-boiKhata.release.xcconfig"; sourceTree = "<group>"; };
+		8AC929D2F9E42C61E964CBA2 /* Pods_boiKhata.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_boiKhata.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9C12A9AA8D78E308486AC736 /* Pods-boiKhata.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-boiKhata.debug.xcconfig"; path = "Target Support Files/Pods-boiKhata/Pods-boiKhata.debug.xcconfig"; sourceTree = "<group>"; };
+		C89096BC27F5937F00265036 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C8E58ED927F589D800E2B18E /* boiKhata.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = boiKhata.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8E58EDC27F589D800E2B18E /* boiKhataApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = boiKhataApp.swift; sourceTree = "<group>"; };
 		C8E58EDE27F589D800E2B18E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -26,17 +32,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C35BEC043E1D04398FE5300 /* Pods_boiKhata.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		10B5DDB7C80F18D783C35090 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9C12A9AA8D78E308486AC736 /* Pods-boiKhata.debug.xcconfig */,
+				5373B3765540F670D05FF1CE /* Pods-boiKhata.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		58E3678FA83139279A7CD4DB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8AC929D2F9E42C61E964CBA2 /* Pods_boiKhata.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		C8E58ED027F589D800E2B18E = {
 			isa = PBXGroup;
 			children = (
 				C8E58EDB27F589D800E2B18E /* boiKhata */,
 				C8E58EDA27F589D800E2B18E /* Products */,
+				10B5DDB7C80F18D783C35090 /* Pods */,
+				58E3678FA83139279A7CD4DB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -53,6 +79,7 @@
 			children = (
 				C8E58EDC27F589D800E2B18E /* boiKhataApp.swift */,
 				C8E58EDE27F589D800E2B18E /* ContentView.swift */,
+				C89096BC27F5937F00265036 /* GoogleService-Info.plist */,
 				C8E58EE027F589DA00E2B18E /* Assets.xcassets */,
 				C8E58EE227F589DA00E2B18E /* Preview Content */,
 			);
@@ -74,9 +101,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C8E58EE727F589DA00E2B18E /* Build configuration list for PBXNativeTarget "boiKhata" */;
 			buildPhases = (
+				9739F4783B4E7FE0A0D5F73D /* [CP] Check Pods Manifest.lock */,
 				C8E58ED527F589D800E2B18E /* Sources */,
 				C8E58ED627F589D800E2B18E /* Frameworks */,
 				C8E58ED727F589D800E2B18E /* Resources */,
+				FC528D393071A3E0710F00F4 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -127,10 +156,53 @@
 			files = (
 				C8E58EE427F589DA00E2B18E /* Preview Assets.xcassets in Resources */,
 				C8E58EE127F589DA00E2B18E /* Assets.xcassets in Resources */,
+				C89096BD27F5937F00265036 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9739F4783B4E7FE0A0D5F73D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-boiKhata-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FC528D393071A3E0710F00F4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-boiKhata/Pods-boiKhata-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-boiKhata/Pods-boiKhata-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-boiKhata/Pods-boiKhata-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C8E58ED527F589D800E2B18E /* Sources */ = {
@@ -261,6 +333,7 @@
 		};
 		C8E58EE827F589DA00E2B18E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9C12A9AA8D78E308486AC736 /* Pods-boiKhata.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -290,6 +363,7 @@
 		};
 		C8E58EE927F589DA00E2B18E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5373B3765540F670D05FF1CE /* Pods-boiKhata.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
