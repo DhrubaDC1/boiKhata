@@ -1,4 +1,10 @@
 PODS:
+  - AppAuth (1.5.0):
+    - AppAuth/Core (= 1.5.0)
+    - AppAuth/ExternalUserAgent (= 1.5.0)
+  - AppAuth/Core (1.5.0)
+  - AppAuth/ExternalUserAgent (1.5.0):
+    - AppAuth/Core
   - Firebase/Auth (8.14.0):
     - Firebase/CoreOnly
     - FirebaseAuth (~> 8.14.0)
@@ -68,6 +74,10 @@ PODS:
     - GoogleUtilities/Environment (~> 7.2)
     - nanopb (~> 2.30908.0)
     - PromisesObjC (< 3.0, >= 1.2)
+  - GoogleSignIn (6.1.0):
+    - AppAuth (~> 1.4)
+    - GTMAppAuth (~> 1.0)
+    - GTMSessionFetcher/Core (~> 1.1)
   - GoogleUtilities/AppDelegateSwizzler (7.7.0):
     - GoogleUtilities/Environment
     - GoogleUtilities/Logger
@@ -87,6 +97,9 @@ PODS:
     - GoogleUtilities/Logger
   - GoogleUtilities/UserDefaults (7.7.0):
     - GoogleUtilities/Logger
+  - GTMAppAuth (1.2.3):
+    - AppAuth/Core (~> 1.4)
+    - GTMSessionFetcher/Core (~> 1.5)
   - GTMSessionFetcher/Core (1.7.1)
   - nanopb (2.30908.0):
     - nanopb/decode (= 2.30908.0)
@@ -99,10 +112,12 @@ PODS:
 DEPENDENCIES:
   - Firebase/Auth
   - Firebase/Core
+  - GoogleSignIn
   - SwiftLint
 
 SPEC REPOS:
   trunk:
+    - AppAuth
     - Firebase
     - FirebaseAnalytics
     - FirebaseAuth
@@ -111,13 +126,16 @@ SPEC REPOS:
     - FirebaseInstallations
     - GoogleAppMeasurement
     - GoogleDataTransport
+    - GoogleSignIn
     - GoogleUtilities
+    - GTMAppAuth
     - GTMSessionFetcher
     - nanopb
     - PromisesObjC
     - SwiftLint
 
 SPEC CHECKSUMS:
+  AppAuth: 80317d99ac7ff2801a2f18ff86b48cd315ed465d
   Firebase: 7e8fe528c161b9271d365217a74c16aaf834578e
   FirebaseAnalytics: 2fc3876e2eb347673ad2f35e249ae7b15d6c88f5
   FirebaseAuth: c5fde343630090253d3af7e2d35697b414b40202
@@ -126,12 +144,14 @@ SPEC CHECKSUMS:
   FirebaseInstallations: 7d1d967a307c12f1aadd76844fc321cef699b1ce
   GoogleAppMeasurement: 71156240babd3cc6ced03e0d54816f01a880c730
   GoogleDataTransport: 629c20a4d363167143f30ea78320d5a7eb8bd940
+  GoogleSignIn: c90b5bec45e780f54c6a8e1e3c182a86e3dda69d
   GoogleUtilities: e0913149f6b0625b553d70dae12b49fc62914fd1
+  GTMAppAuth: 987526d41b07efb1bedda5e936fe0cb718a03113
   GTMSessionFetcher: 4577a4cc914a5a07c40a8a0ad0acc22080418c2d
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
   PromisesObjC: 68159ce6952d93e17b2dfe273b8c40907db5ba58
   SwiftLint: d41cc46a2ae58ac6d9f26954bc89f1d72e71fdef
 
-PODFILE CHECKSUM: 9e5b3f1465191894f9a943c528058f9698ca9d61
+PODFILE CHECKSUM: 279f63f8d1e9431cd7dfa3020ed8bd648b73dd83
 
 COCOAPODS: 1.11.3

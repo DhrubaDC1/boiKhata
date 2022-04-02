@@ -9,5 +9,5 @@ target 'boiKhata' do
   pod 'SwiftLint'
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
-  pod 'Firebase/GoogleSignIn'
+  pod 'GoogleSignIn'
 end
