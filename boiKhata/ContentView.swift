@@ -6,7 +6,10 @@
 //
 
 import SwiftUI
+import Firebase
+import FirebaseStorage
 import FirebaseAuth
+import MobileCoreServices
 class AppViewModel: ObservableObject{
     
     let auth = Auth.auth()
@@ -48,22 +51,14 @@ class AppViewModel: ObservableObject{
         }
 }
 
-
 struct ContentView: View {
     @EnvironmentObject var viewModel: AppViewModel
     var body: some View {
         NavigationView {
             if viewModel.signedIn {
-                VStack {
-                    Text("You are signed in")
-                    
-                    Button(action: {
-                        viewModel.signOut()}, label: {
-                        Text("Sign Out")
-                            .foregroundColor(Color.purple)
-                    })
+                VStack{
+                    DocumentView()
                 }
-                
             }
             else {
                 SignInView()
@@ -72,6 +67,42 @@ struct ContentView: View {
         }
         .onAppear{
             viewModel.signedIn = viewModel.isSignedIn
+        }
+        
+    }
+}
+
+struct DocumentPicker : UIViewControllerRepresentable {
+    func makeCoordinator() -> DocumentPicker.Coordinator {
+        return DocumentPicker.Coordinator(parent1: self)
+    }
+    @Binding var alert: Bool
+    func makeUIViewController(context: UIViewControllerRepresentableContext<DocumentPicker>) -> UIDocumentPickerViewController {
+        let picker = UIDocumentPickerViewController(documentTypes: [String(kUTTypePDF)], in: .open)
+        picker.allowsMultipleSelection = false
+        picker.delegate = context.coordinator
+        return picker
+    }
+    func updateUIViewController(_ uiViewController: UIDocumentPickerViewController, context: UIViewControllerRepresentableContext<DocumentPicker>) {
+        
+    }
+    class Coordinator: NSObject, UIDocumentPickerDelegate{
+        var parent : DocumentPicker
+        init(parent1: DocumentPicker){
+            parent = parent1
+        }
+        func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]){
+            let bucket = Storage.storage().reference()
+            bucket.child((urls.first?.deletingPathExtension().lastPathComponent)!).putFile(from: urls.first!, metadata: nil) {
+                (_, err) in
+                
+                if err != nil{
+                    print((err?.localizedDescription)!)
+                    return
+                }
+                print("Success")
+                self.parent.alert.toggle()
+            }
         }
     }
 }
@@ -165,6 +196,37 @@ struct SignUpView: View {
             }
             .navigationTitle("Create an account")
         }
+}
+struct DocumentView: View{
+    @State var show = false
+    @EnvironmentObject var viewModel: AppViewModel
+    @State var alert = false
+    var body: some View {
+        NavigationView{
+        VStack{
+            Text("Pick the document you want to print:")
+    Button(action: {
+        self.show.toggle()
+    }){
+    Text("Pick your document")
+            .sheet(isPresented: $show){
+                DocumentPicker(alert: self.$alert)
+            }
+            .alert(isPresented: $alert){
+                Alert(title: Text("Message"), message: Text("Uploaded Successfully!"), dismissButton: .default(Text("Ok")))
+            }
+            }
+        }
+        }
+        .navigationTitle("Welcome to Boi Khata")
+        .toolbar{
+            Button(action: {
+                viewModel.signOut()}, label: {
+                Text("Sign Out")
+                    .foregroundColor(Color.purple)
+            })
+        }
+    }
 }
 
 struct ContentView_Previews: PreviewProvider {
