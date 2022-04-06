@@ -7,14 +7,33 @@
 
 import SwiftUI
 import Firebase
+import FirebaseDatabase
 import FirebaseStorage
 import FirebaseAuth
+import FirebaseFirestore
 import MobileCoreServices
 class AppViewModel: ObservableObject{
     
     let auth = Auth.auth()
     
     @Published var signedIn = false
+    @Published var list = [Info]()
+    
+    func addData(name: String, email: String, phone: String, count: String, color: String, address: String){
+        
+        let db = Firestore.firestore()
+        
+        db.collection("Info").addDocument(data: ["name": name, "email": email, "phone": phone, "count": count, "color": color, "address": address]) { error in
+            
+            if error == nil {
+//                self.getData()
+            }
+            else{
+                
+            }
+        }
+        
+    }
     
     var isSignedIn: Bool{
         return auth.currentUser != nil
@@ -120,10 +139,12 @@ struct DocumentPicker : UIViewControllerRepresentable {
                 
                 VStack {
                     TextField("Email Address", text: $email)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
                         .disableAutocorrection(true)
                         .autocapitalization(.none)
                         .padding()
                     SecureField("Password", text: $password)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
                         .disableAutocorrection(true)
                         .autocapitalization(.none)
                         .padding()
@@ -167,10 +188,12 @@ struct SignUpView: View {
             
             VStack {
                 TextField("Email Address", text: $email)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
                     .disableAutocorrection(true)
                     .autocapitalization(.none)
                     .padding()
                 SecureField("Password", text: $password)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
                     .disableAutocorrection(true)
                     .autocapitalization(.none)
                     .padding()
@@ -200,10 +223,25 @@ struct SignUpView: View {
 struct DocumentView: View{
     @State var show = false
     @EnvironmentObject var viewModel: AppViewModel
+    @State private var showingAlert = false
     @State var alert = false
+    @State var name = ""
+    @State var email = ""
+    @State var phone = ""
+    @State var count = ""
+    @State var color = ""
+    @State var address = ""
     var body: some View {
         NavigationView{
-        VStack{
+            
+            VStack(spacing: 10){
+                Image("logo")
+                    .resizable()
+//                    .scaledToFit()
+                    .frame(width: 100, height: 100)
+                Text("1. Rename the pdf file to your phone number\n2. Pick the pdf file and wait for confirmation\n3. Fill up the form and submit\nWe will call you as soon as we get your request")
+//                .lineSpacing(10)
+//                .textFieldStyle(RoundedBorderTextFieldStyle())
             Text("Pick the document you want to print:")
     Button(action: {
         self.show.toggle()
@@ -213,9 +251,52 @@ struct DocumentView: View{
                 DocumentPicker(alert: self.$alert)
             }
             .alert(isPresented: $alert){
-                Alert(title: Text("Message"), message: Text("Uploaded Successfully!"), dismissButton: .default(Text("Ok")))
+                Alert(title: Text("Message"), message: Text("Uploaded Successfully!\nFill up the form below and submit"), dismissButton: .default(Text("Ok")))
             }
             }
+                Group{
+            TextField("Name", text: $name)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .disableAutocorrection(true)
+                .autocapitalization(.none)
+            TextField("Email", text: $email)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .disableAutocorrection(true)
+                .autocapitalization(.none)
+            TextField("Phone", text: $phone)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .disableAutocorrection(true)
+                .autocapitalization(.none)
+            TextField("Copies", text: $count)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .disableAutocorrection(true)
+                .autocapitalization(.none)
+            TextField("Color/b&w", text: $color)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .disableAutocorrection(true)
+                .autocapitalization(.none)
+            TextField("Address", text: $address)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .disableAutocorrection(true)
+                .autocapitalization(.none)
+                }
+            Button(action: {
+                
+                viewModel.addData(name: name, email: email, phone: phone, count: count, color: color, address: address)
+                
+                name = ""
+                email = ""
+                phone = ""
+                count = ""
+                color = ""
+                address = ""
+                showingAlert = true
+            }, label: {
+                Text("Submit")
+            })
+            .alert("Order Done\nWait for the confirmation", isPresented: $showingAlert) {
+                        Button("OK", role: .cancel) { }
+                    }
         }
         }
         .navigationTitle("Welcome to Boi Khata")

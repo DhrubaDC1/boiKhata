@@ -8,7 +8,9 @@ target 'boiKhata' do
   # Pods for boiKhata
   pod 'SwiftLint'
   pod 'Firebase/Core'
+  pod 'Firebase/Database'
   pod 'Firebase/Auth'
   pod 'Firebase/Storage'
+  pod 'Firebase/Firestore'
   pod 'GoogleSignIn'
 end

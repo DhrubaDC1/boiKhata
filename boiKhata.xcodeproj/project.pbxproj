@@ -8,7 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		5C35BEC043E1D04398FE5300 /* Pods_boiKhata.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AC929D2F9E42C61E964CBA2 /* Pods_boiKhata.framework */; };
-		C846F70927F8C28A009438F1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C846F70827F8C28A009438F1 /* GoogleService-Info.plist */; };
+		C8C582EF27FAB58600A24E84 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C8C582EE27FAB58600A24E84 /* GoogleService-Info.plist */; };
+		C8C582F527FACF8200A24E84 /* Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8C582F427FACF8200A24E84 /* Info.swift */; };
 		C8E58EDD27F589D800E2B18E /* boiKhataApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E58EDC27F589D800E2B18E /* boiKhataApp.swift */; };
 		C8E58EDF27F589D800E2B18E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E58EDE27F589D800E2B18E /* ContentView.swift */; };
 		C8E58EE127F589DA00E2B18E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C8E58EE027F589DA00E2B18E /* Assets.xcassets */; };
@@ -19,7 +20,8 @@
 		5373B3765540F670D05FF1CE /* Pods-boiKhata.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-boiKhata.release.xcconfig"; path = "Target Support Files/Pods-boiKhata/Pods-boiKhata.release.xcconfig"; sourceTree = "<group>"; };
 		8AC929D2F9E42C61E964CBA2 /* Pods_boiKhata.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_boiKhata.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C12A9AA8D78E308486AC736 /* Pods-boiKhata.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-boiKhata.debug.xcconfig"; path = "Target Support Files/Pods-boiKhata/Pods-boiKhata.debug.xcconfig"; sourceTree = "<group>"; };
-		C846F70827F8C28A009438F1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C8C582EE27FAB58600A24E84 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C8C582F427FACF8200A24E84 /* Info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Info.swift; sourceTree = "<group>"; };
 		C8E58ED927F589D800E2B18E /* boiKhata.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = boiKhata.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8E58EDC27F589D800E2B18E /* boiKhataApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = boiKhataApp.swift; sourceTree = "<group>"; };
 		C8E58EDE27F589D800E2B18E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -56,6 +58,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		C8C582F127FAC72400A24E84 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C8C582F427FACF8200A24E84 /* Info.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		C8E58ED027F589D800E2B18E = {
 			isa = PBXGroup;
 			children = (
@@ -78,9 +88,10 @@
 			isa = PBXGroup;
 			children = (
 				C8E58EDC27F589D800E2B18E /* boiKhataApp.swift */,
+				C8C582EE27FAB58600A24E84 /* GoogleService-Info.plist */,
 				C8E58EDE27F589D800E2B18E /* ContentView.swift */,
+				C8C582F127FAC72400A24E84 /* Models */,
 				C8E58EE027F589DA00E2B18E /* Assets.xcassets */,
-				C846F70827F8C28A009438F1 /* GoogleService-Info.plist */,
 				C8E58EE227F589DA00E2B18E /* Preview Content */,
 			);
 			path = boiKhata;
@@ -156,7 +167,7 @@
 			files = (
 				C8E58EE427F589DA00E2B18E /* Preview Assets.xcassets in Resources */,
 				C8E58EE127F589DA00E2B18E /* Assets.xcassets in Resources */,
-				C846F70927F8C28A009438F1 /* GoogleService-Info.plist in Resources */,
+				C8C582EF27FAB58600A24E84 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -209,6 +220,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C8C582F527FACF8200A24E84 /* Info.swift in Sources */,
 				C8E58EDF27F589D800E2B18E /* ContentView.swift in Sources */,
 				C8E58EDD27F589D800E2B18E /* boiKhataApp.swift in Sources */,
 			);
