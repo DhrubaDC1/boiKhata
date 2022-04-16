@@ -58,12 +58,37 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		C8C582F127FAC72400A24E84 /* Models */ = {
+		C8C30BEB2809C7CA002F6ECC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C8E58EDE27F589D800E2B18E /* ContentView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C8C30BED2809C9E0002F6ECC /* MVC Stucture */ = {
+			isa = PBXGroup;
+			children = (
+				C8C30BEE2809CA30002F6ECC /* Model */,
+				C8C30BEB2809C7CA002F6ECC /* View */,
+				C8C30BEF2809CA3C002F6ECC /* Controller */,
+			);
+			path = "MVC Stucture";
+			sourceTree = "<group>";
+		};
+		C8C30BEE2809CA30002F6ECC /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				C8C582F427FACF8200A24E84 /* Info.swift */,
 			);
-			path = Models;
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C8C30BEF2809CA3C002F6ECC /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		C8E58ED027F589D800E2B18E = {
@@ -87,10 +112,9 @@
 		C8E58EDB27F589D800E2B18E /* boiKhata */ = {
 			isa = PBXGroup;
 			children = (
+				C8C30BED2809C9E0002F6ECC /* MVC Stucture */,
 				C8E58EDC27F589D800E2B18E /* boiKhataApp.swift */,
 				C8C582EE27FAB58600A24E84 /* GoogleService-Info.plist */,
-				C8E58EDE27F589D800E2B18E /* ContentView.swift */,
-				C8C582F127FAC72400A24E84 /* Models */,
 				C8E58EE027F589DA00E2B18E /* Assets.xcassets */,
 				C8E58EE227F589DA00E2B18E /* Preview Content */,
 			);
